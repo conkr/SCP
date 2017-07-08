@@ -22,12 +22,13 @@ void InterpolatePriv::HelloWorldPriv(const char * s)
 {
     std::cout << s << std::endl;
 };
-
+ //create equidistant grid
 void Interpolate::CreateGrid_EvenlySpaced(int npts, double *x, double a, double b){
     double dx = (b-a)/(npts-1.0);
     for(int i=0;i<npts;i++)
         x[i] = a + i*dx;
     return; }
+// lagrangeinterpolant
 double Interpolate::LagrangeInterpolant(double x, int npts, double *xpts, double * funcvals){
     int i;
     double sum = 0.0;
@@ -35,7 +36,7 @@ double Interpolate::LagrangeInterpolant(double x, int npts, double *xpts, double
         sum = sum + funcvals[i]*LagrangePoly(x,i,npts,xpts);
     }
     return sum; }
-
+// lagrangeploy base function
 double Interpolate::LagrangePoly(double x, int pt, int npts, double * xpts){
     int i;
     double h=1.0;
