@@ -11,15 +11,36 @@
 #include "interpolate.hpp"
 #include "interpolatePriv.hpp"
 
-void interpolate::HelloWorld(const char * s)
+void Interpolate::HelloWorld(const char * s)
 {
-    interpolatePriv *theObj = new interpolatePriv;
+    InterpolatePriv *theObj = new InterpolatePriv;
     theObj->HelloWorldPriv(s);
     delete theObj;
 };
 
-void interpolatePriv::HelloWorldPriv(const char * s) 
+void InterpolatePriv::HelloWorldPriv(const char * s)
 {
     std::cout << s << std::endl;
 };
 
+void Interpolate::CreateGrid_EvenlySpaced(int npts, double *x, double a, double b){
+    double dx = (b-a)/(npts-1.0);
+    for(int i=0;i<npts;i++)
+        x[i] = a + i*dx;
+    return; }
+double Interpolate::LagrangeInterpolant(double x, int npts, double *xpts, double * funcvals){
+    int i;
+    double sum = 0.0;
+    for(i=0;i<npts;i++){
+        sum = sum + funcvals[i]*LagrangePoly(x,i,npts,xpts);
+    }
+    return sum; }
+
+double Interpolate::LagrangePoly(double x, int pt, int npts, double * xpts){
+    int i;
+    double h=1.0;
+    for(i=0;i<pt;i++)
+        h = h * (x - xpts[i])/(xpts[pt]-xpts[i]);
+    for(i=pt+1;i<npts;i++)
+        h = h * (x - xpts[i])/(xpts[pt]-xpts[i]);
+    return h; }

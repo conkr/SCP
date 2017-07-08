@@ -10,7 +10,7 @@
 /* The classes below are not exported */
 #pragma GCC visibility push(hidden)
 
-class interpolatePriv
+class InterpolatePriv
 {
     public:
     void HelloWorldPriv(const char *);

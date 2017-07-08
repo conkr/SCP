@@ -13,11 +13,14 @@
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
-class interpolate
+class Interpolate
 {
     public:
     void HelloWorld(const char *);
+    void CreateGrid_EvenlySpaced(int npts, double *x, double a, double b);
+    double LagrangePoly(double x, int pt, int npts, double * xpts);
+    double LagrangeInterpolant(double x, int npts, double *xpts, double * funcvals);
 };
-
+    
 #pragma GCC visibility pop
 #endif
