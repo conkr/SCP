@@ -6,7 +6,6 @@
  *  Copyright © 2017 run. All rights reserved.
  *
  */
-
 #ifndef interpolate_
 #define interpolate_
 
