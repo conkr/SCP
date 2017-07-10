@@ -21,7 +21,10 @@ class Interpolate
     void CreateGrid_EvenlySpaced(int npts, double *x, double a, double b);
     double LagrangePoly(double x, int pt, int npts, double * xpts);
     double LagrangeInterpolant(double x, int npts, double *xpts, double * funcvals);
-};
+    double NewtonDiffFunction(int start_index, int ending_index, double * xpts, double * funcvals);
+    void NewtonDiffTable(int npts, double *xpts, double *funcvals, double * newton_coeffs);
+    double NewtonInterpolant(double x, int npts, double * xpts, double * newton_coeffs);
     
+};
 #pragma GCC visibility pop
 #endif
